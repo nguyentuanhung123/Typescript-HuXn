@@ -10,4 +10,3 @@ numList.push(20);
 
 console.log(numList);
 
-// Array<type> Notation

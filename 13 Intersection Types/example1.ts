@@ -5,8 +5,8 @@ type UserInfo = {
 }
 
 type AccountDetails = {
-    email: string;
-    password: string;
+   email: string;
+   password: string;
 }
 
 type User = UserInfo & AccountDetails

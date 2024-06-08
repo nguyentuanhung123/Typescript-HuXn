@@ -106,3 +106,73 @@
 
 - Intersection type là cách kết hợp nhiều type thành một type duy nhất bao gồm tất cả các thuộc tính và phương thức của từng type thành phần. Intersection type được biểu thị bằng ký hiệu &
 
+### Unions
+
+- Unions are used to declare a type that can have one of several possible types. Unions are useful when we want to allow a variable or parameter to accept multiple types.
+
+- The syntax for defining a union type in TypeScript uses the pipe symbol (|)
+
+- Unions dùng để khai báo một kiểu có thể có một trong nhiều kiểu có thể. Unions rất hữu ích khi chúng ta muốn cho phép một biến hoặc tham số chấp nhận nhiều type.
+
+- Cú pháp xác định kiểu kết hợp trong TypeScript sử dụng ký hiệu ống dẫn (|)
+
+### Literal Types
+
+- Literal types allow you to specify a value that can only be one specific literal value. This means that a variable with a literal type can only have one specific value and no other.
+
+- Literal types cho phép bạn chỉ định một giá trị chỉ có thể là một giá trị chữ cụ thể. Điều này có nghĩa là một biến có kiểu chữ chỉ có thể có một giá trị cụ thể và không có giá trị nào khác.
+
+### Tuples
+
+- Tuple is a type that represents an array with a fixed number of elements, where each element can have a different type. The order of the types in the tuple definition corresponds to the order of the values in the actual array. Tuples are similar to arrays, but they have a specific structure and can be used to model finite sequences with know lengths.
+
+- Tuple là kiểu đại diện cho một mảng có số phần tử cố định, trong đó mỗi phần tử có thể có một type khác nhau. Thứ tự của các type trong định nghĩa bộ dữ liệu tương ứng với thứ tự của các giá trị trong mảng thực tế. Bộ dữ liệu tương tự như mảng, nhưng chúng có cấu trúc cụ thể và có thể được sử dụng để mô hình hóa các chuỗi hữu hạn với độ dài đã biết.
+
+
+### Enums
+
+- Enums is a way to define a set of named constants. Enums allow you to define a collection of related values that can be used interchangeably in your code.
+
+- Enums là cách định nghĩa một tập hợp các hằng số được đặt tên. Enums cho phép bạn xác định một tập hợp các giá trị liên quan có thể được sử dụng thay thế cho nhau trong mã của bạn.
+
+### Class Properties Annotations
+
+- You can annotate properties with a type. This allows you to define the data type of the property and ensure that it is always consistent
+
+- Bạn có thể chú thích các thuộc tính bằng type. Điều này cho phép bạn xác định kiểu dữ liệu của thuộc tính và đảm bảo rằng nó luôn nhất quán
+
+## Access Modifiers
+
+- In Typescript, you can use access modifiers to control the visibility of class members (propoerties and methods). Access modifiers determine the ways in which class members can be accessed from within and outside the class
+
+- Trong Typescript, bạn có thể sử dụng công cụ sửa đổi truy cập để kiểm soát mức độ hiển thị của các thành viên lớp (thuộc tính và phương thức). Công cụ sửa đổi quyền truy cập xác định cách thức mà các thành viên lớp có thể được truy cập từ bên trong và bên ngoài lớp
+
+## There are three types of access modifier in Typescript
+
+- Public
+- Private
+- Protected
+
+# Public
+
+- Members marked as public can be accessed from anywhere, both inside and outside the class
+
+- Các thành viên được đánh dấu là công khai có thể được truy cập từ mọi nơi, cả trong và ngoài class
+
+# Private
+
+- Members marked as private can only be accessed from within the class they are defined in.
+
+- Các thành viên được đánh dấu là riêng tư chỉ có thể được truy cập từ bên trong class mà chúng được xác định.
+
+# Protected
+
+- Members marked as protected can be accessed from within the class they are defined in, as well as any subclasses that extend the class
+
+- Các thành viên được đánh dấu là protected có thể được truy cập từ bên trong class mà chúng được định nghĩa, cũng như bất kỳ class con nào mở rộng class đó
+
+## Getters & Setters
+
+- Getters and setters are used to access and modify class properties. Getters and setters allow you to define a property in a class that looks like a simple variable from the outside but internally has additional logic for getting and setting the value.
+
+- Getters và setters được sử dụng để truy cập và sửa đổi các thuộc tính của class. Getters và setters cho phép bạn xác định một thuộc tính trong một class trông giống như một biến đơn giản nhìn từ bên ngoài nhưng bên trong có logic bổ sung để nhận và đặt giá trị.
