@@ -27,8 +27,14 @@ console.log(a1.getName()); // Cook
 console.log(a1.getAge()); // 3
 console.log(a1.getSpecies()); // Dog
 
+/**
+ * Trong lớp Dog, bạn có thể chọn không truyền tham số species trong hàm khởi tạo để đơn giản hóa việc khởi tạo đối tượng. 
+ * Thay vào đó, bạn có thể cung cấp giá trị mặc định cho thuộc tính species khi gọi super từ lớp cơ sở Animal. 
+ * Đây là cách để đảm bảo rằng lớp Dog có thể tự thiết lập thuộc tính species mà không yêu cầu người dùng phải truyền giá trị cho nó.
+ */
 class Dog extends Animal {
     constructor(name: string, age: number) {
+        // Gọi hàm khởi tạo của lớp cơ sở Animal để khởi tạo các thuộc tính name, age, và species của đối tượng Dog.
         super(name, age, "Canine")
     }
 

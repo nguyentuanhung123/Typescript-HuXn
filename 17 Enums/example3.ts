@@ -6,4 +6,4 @@ enum WeatherConditions {
 }
 
 const currentWeather = WeatherConditions.Snowy
-console.log(`The current weather is ${currentWeather}`);
+console.log(`The current weather is ${currentWeather}`); // The current weather is snowy

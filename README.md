@@ -163,7 +163,7 @@
 
 - Members marked as private can only be accessed from within the class they are defined in.
 
-- Các thành viên được đánh dấu là riêng tư chỉ có thể được truy cập từ bên trong class mà chúng được xác định.
+- Các thành viên được đánh dấu là private chỉ có thể được truy cập từ bên trong class mà chúng được xác định.
 
 # Protected
 
@@ -176,3 +176,32 @@
 - Getters and setters are used to access and modify class properties. Getters and setters allow you to define a property in a class that looks like a simple variable from the outside but internally has additional logic for getting and setting the value.
 
 - Getters và setters được sử dụng để truy cập và sửa đổi các thuộc tính của class. Getters và setters cho phép bạn xác định một thuộc tính trong một class trông giống như một biến đơn giản nhìn từ bên ngoài nhưng bên trong có logic bổ sung để nhận và đặt giá trị.
+
+### Interface
+
+- Interface is a  way to define a contract for the shape of an object. It specifies the properties and their types that an object must have. Interfaces are a powerful tool for enforcing a certain structure in your code
+
+- While interfaces are commonly used to define the structure of objects, they are not limited to just objects. Interfaces in Typescript can also be used to descripe the shape of functions and classes
+
+- Interface là một cách để xác định hợp đồng về hình dạng của một object. Nó chỉ định các thuộc tính và kiểu của chúng mà một object phải có. Interface là một công cụ mạnh mẽ để thực thi một cấu trúc nhất định trong mã của bạn
+
+- Mặc dù các interface thường được sử dụng để xác định cấu trúc của các object nhưng chúng không chỉ giới hạn ở các object. Các interface trong Typescript cũng có thể được sử dụng để mô tả hình dạng của các hàm và lớp
+
+
+# Declaration merging
+- One an interface is declared, it cannot be directly modified. However, TypeScript allows what is informally referred to as "declaration merging" or "interface extension", which is often misconstrued as "re-opening"
+
+- Declaration merging in TypeScript refers to the ability to extend or augment an existing declaration, including interfaces. This can be useful when you want to add new properties or methods to an existing interface without modifying the original declaration.
+
+- Một interface được khai báo, nó không thể được sửa đổi trực tiếp. Tuy nhiên, TypeScript cho phép những gì được gọi một cách không chính thức là "hợp nhất khai báo" hoặc "mở rộng giao diện", thường bị hiểu sai là "re-opening"
+
+- Việc hợp nhất khai báo trong TypeScript đề cập đến khả năng mở rộng hoặc bổ sung một khai báo hiện có, bao gồm cả các giao diện. Điều này có thể hữu ích khi bạn muốn thêm thuộc tính hoặc phương thức mới vào giao diện hiện có mà không sửa đổi khai báo ban đầu.
+
+
+### Generics
+
+- In TypeScript, generics allow you to create reusable components that can work with a variety of types. Generics make it possible for you to define functions, classes, and interfaces that can word with different data types without having to duplicate code.
+
+- Trong TypeScript, generic cho phép bạn tạo các component có thể tái sử dụng và hoạt động với nhiều loại khác nhau. Generics giúp bạn có thể xác định các hàm, lớp và giao diện có thể diễn đạt với các kiểu dữ liệu khác nhau mà không cần phải sao chép mã.
+
+
