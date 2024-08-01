@@ -204,4 +204,176 @@
 
 - Trong TypeScript, generic cho phép bạn tạo các component có thể tái sử dụng và hoạt động với nhiều loại khác nhau. Generics giúp bạn có thể xác định các hàm, lớp và giao diện có thể diễn đạt với các kiểu dữ liệu khác nhau mà không cần phải sao chép mã.
 
+### Type Narrowing
+- Type narrowing is the process of refining a variable's type within a conditional block of code. This allows you to write more precise and type-save code.
+
+- Type narrowing (Thu hẹp kiểu) là quá trình tinh chỉnh kiểu của biến trong khối mã có điều kiện. Điều này cho phép bạn viết mã chính xác hơn và tiết kiệm kiểu.
+
+## Typscript provies several mechanisms for narrowing types
+
+- Type guards
+- The instanceof operator
+- Intersection types
+
+# Type guards
+
+- Type guards are mechanisms that help Typscript understand and narrow down the types more precisely. One common type guard is the typeof operator
+
+- Type guards là cơ chế giúp Typescript hiểu và thu hẹp các loại chính xác hơn. Một type guard phổ biến là toán tử typeof
+
+# instanceof operator
+
+- The instanceof operator is another type guard in Typescript that allows you to check whether an object is an instance of a particular class or constructor function
+
+- Toán tử instanceof là một kiểu bảo vệ khác trong Typescript cho phép bạn kiểm tra xem một đối tượng có phải là một thể hiện của một class cụ thể hay constructor function hay không
+
+# Intersection types
+
+- Intersection types in Typescript aloow you to combine multiple types into a single type. The result type will have all the properties of each individual type. You create intersection types using the & operator.
+
+### Amazing Setup for Typescript
+
+- B1: Mở Terminal và gõ lệnh : tsc -init (tạo file tsconfig.json trong thư mục)
+- B2: Tạo 1 file như index.ts hoặc example1.ts bất kỳ và viết code bất kỳ như
+
+```tsx
+// Define two types
+type Employee = {
+    id: number;
+    name: string;
+}
+
+type Manager = {
+    department: string
+    role: string
+}
+
+// Create an intersection type
+type ManagerWithEmployeeInfo = Employee & Manager
+
+const manager: ManagerWithEmployeeInfo = {
+    id: 123,
+    name: "John Doe",
+    department: "Engineering",
+    role: "Team Lead"
+}
+
+console.log(manager.id); // 123
+console.log(manager.name); // John Doe
+console.log(manager.department); // Engineering
+console.log(manager.role); // Team Lead
+```
+
+- B3: Gõ lệnh: tsc example1.ts (tsc index.ts để tự động tạo 1 file js dựa trên file ts đã có)
+
+```js
+// Example usage
+var manager = {
+    id: 123,
+    name: "John Doe",
+    department: "Engineering",
+    role: "Team Lead"
+};
+console.log(manager.id); // 123
+console.log(manager.name); // John Doe
+console.log(manager.department); // Engineering
+console.log(manager.role); // Team Lead
+```
+
+### Có 1 điểm lưu ý: Nếu ở file index.ts ta khởi tạo 1 arraw function thì khi gõ tsc index.ts thì file index.js sẽ khởi tạo 1 funnction thường
+
+- Ví dụ
+
+- Ở file index.ts
+
+```ts
+const add = (a: number, b: number) =>  {
+    return a + b;
+}
+```
+
+- Thì ở file index.js
+
+```js
+var add = function (a, b) {
+    return a + b;
+};
+```
+
+## Lý do : ta để mặc định : "target": "es2016" và cách sửa :
+- B1: Vào file tsconfig.ts đã tạo
+- B2: Sửa lại target : "target": "ES6",   
+- B3: Xóa file js cũ đã tạo và chạy lại bằng câu lệnh tsc mà không cần phải viết rõ tsc index.tsc (Nó sẽ tự động tạo các file js với "use strict" ở đầu)
+
+## Trong trường hợp người dùng chỉ muốn tạo 1 file js cụ thể từ 1 file ts bất ký thì câu lệnh tsc lại phản tác dụng vì nó tạo tất cả các file js từ các file ts có sắn
+
+- Cách sửa (Vào https://www.typescriptlang.org/tsconfig/#files để xem chi tiết)
+- B1: Vào file tsconfig.ts đã tạo
+- B2: Bổ sung mảng files cùng cấp với compilerOptions có sẵn (Ta chỉ muốn tạo file index.js từ file index.ts có sẵn)
+
+```js
+{
+  "compilerOptions": {},
+  "files": ["index.ts"]
+}
+```
+
+## Trong trường hợp ta có thư mục src chứa tất cả các file ts, ta muốn tạo các file js từ các file ts có sẵn
+- B1: Xóa biến files đã tạo (nếu có) và bổ sung include
+
+```js
+{
+  "compilerOptions": {},
+//   "files": ["index.ts"]
+   "include": ["src/**/*"]
+}
+```
+
+- B2: Chạy câu lệnh tsc để kiểm tra
+
+## Trong trường hợp ta có thư mục src chứa tất cả các file ts, nhưng ta chỉ muốn chạy file index.ts để tạo file index.js
+- B1: xóa biến files đã tạo (nếu có) và bổ sung include
+
+```js
+{
+  "compilerOptions": {},
+//   "files": ["index.ts"]
+   "include": ["src/index.ts"]
+}
+```
+
+- B2: Chạy câu lệnh tsc để kiểm tra
+
+## Trong trường hợp ta có thư mục src chứa tất cả các file ts, ta muốn tạo các file js từ các file ts có sẵn trừ file example1.ts
+
+- B1: Xóa biến files đã tạo (nếu có) và bổ sung include và exclude
+
+```js
+{
+  "compilerOptions": {},
+//   "files": ["index.ts"]
+   "include": ["src/**/*"],
+   "exclude": ["src/example1.ts"],
+}
+```
+
+- B2: Chạy câu lệnh tsc để kiểm tra
+
+## Trong trường hợp ta có thư mục src chứa tất cả các file ts và ta muốn các file js được tạo sẽ được tạo trong folder dist
+
+- B1: Tìm biến outDir trong tsconfig.ts
+
+- Mặc định
+
+```ts
+ // "outDir": "./",                                   /* Specify an output folder for all emitted files. */
+```
+
+- Sửa lại
+
+```ts
+"outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
+```
+
+- B2: Chạy câu lệnh tsc để kiểm tra
 
